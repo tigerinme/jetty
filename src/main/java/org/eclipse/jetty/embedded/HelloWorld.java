@@ -18,7 +18,9 @@
 
 package org.eclipse.jetty.embedded;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +38,7 @@ public class HelloWorld extends AbstractHandler {
 			throws IOException, ServletException {
 		// Declare response encoding and types
 		response.setContentType("text/html; charset=utf-8");
-
+		int i = 1 / 0;
 		// Declare response status code
 		response.setStatus(HttpServletResponse.SC_OK);
 
@@ -50,10 +52,11 @@ public class HelloWorld extends AbstractHandler {
 	public static void main(String[] args) throws Exception {
 		Server server = new Server(8080);
 		server.setHandler(new HelloWorld());
-		
+
 		StdErrLog stdErrLog = new StdErrLog();
-		Log.setLog(new StdErrLog());
-		
+		PrintStream stream = new PrintStream(new File("./logs/juchaochao.log"));
+		stdErrLog.setStdErrStream(stream);
+		Log.setLog(stdErrLog);
 		server.start();
 		server.join();
 	}
