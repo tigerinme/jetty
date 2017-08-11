@@ -5,7 +5,8 @@
 	<artifactId>jettty</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<jetty.version>9.4.6.v20170531</jetty.version>
+		<!-- <jetty.version>9.4.6.v20170531</jetty.version> -->
+		<jetty.version>9.2.5.v20141112</jetty.version><!-- HttpChannel.getCurrentHttpChannel() -->
 	</properties>
 	<dependencies>
 
@@ -18,6 +19,27 @@
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlet</artifactId>
 			<version>${jetty.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jetty-servlet</artifactId>
+			<version>2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+			<version>2.23</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.7</version>
 		</dependency>
 	</dependencies>
 
